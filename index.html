@@ -16,7 +16,8 @@ header{
   position:fixed;top:0;width:100%;
   background:#111;color:#fff;
   display:flex;justify-content:space-between;align-items:center;
-  padding:20px 60px;z-index:1000
+  padding:20px 60px;z-index:1000;
+  flex-wrap:wrap;
 }
 .logo{font-size:24px;font-weight:bold}
 
@@ -25,6 +26,7 @@ nav{
   display:flex;
   align-items:center;
   gap:20px;
+  flex-wrap:wrap;
 }
 nav > a, .dropdown > a{
   color:#fff;
@@ -36,14 +38,14 @@ nav > a:hover, .dropdown:hover > a{color:#ffcc00}
 
 /* DROPDOWN */
 .dropdown{
-  position:relative; /* musi być, żeby dropdown-content był względem przycisku */
+  position:relative;
 }
 .dropdown-content{
   position:absolute;
-  top:100%; /* poniżej przycisku */
+  top:100%;
   left:0;
   background:#111;
-  min-width:200px; /* albo możesz ustawić width:auto */
+  min-width:200px;
   display:none;
   flex-direction:column;
   box-shadow:0 10px 30px rgba(0,0,0,.3);
@@ -64,7 +66,6 @@ nav > a:hover, .dropdown:hover > a{color:#ffcc00}
 .dropdown:hover .dropdown-content{
   display:flex;
 }
-
 
 /* HERO */
 .hero{
@@ -222,28 +223,37 @@ footer{
 }
 
 footer a{
-  color:#aaa; /* szary kolor linków */
+  color:#aaa;
   margin:0 10px;
   text-decoration:none;
 }
 
 footer a:hover{
   text-decoration:underline;
-  color:#ffcc00; /* efekt hover */
+  color:#ffcc00;
 }
 
 /* RESPONSYWNE */
 @media(max-width:900px){
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
-  .map-container iframe{
-    min-height:300px;
-  }
-  header{flex-direction:column;align-items:flex-start}
+  header{flex-direction:column;align-items:flex-start;padding:20px}
   nav{margin-top:10px;flex-wrap:wrap;gap:15px}
-  .hero h1{font-size:34px}
-  .steps,.portfolio,.testimonials,.faq{padding:60px 30px}
+  .hero h1{font-size:32px}
+  .hero p{font-size:18px}
+  .hero a{padding:12px 28px;font-size:15px}
+  .steps,.portfolio,.testimonials,.faq,.contact{padding:60px 25px}
+  .steps-container,.portfolio-grid,.contact-grid{grid-template-columns:1fr}
+  .map-container iframe{min-height:250px}
+  .faq-item p{font-size:14px}
+  .step h3{font-size:16px}
+  .step p{font-size:14px}
+}
+
+/* BARDZO MAŁE EKRANY */
+@media(max-width:500px){
+  header{padding:15px}
+  .hero h1{font-size:28px}
+  .hero p{font-size:16px}
+  .hero a{padding:10px 20px;font-size:14px}
 }
 </style>
 </head>
@@ -314,7 +324,6 @@ footer a:hover{
   <div class="faq-item"><h3>Jak dobrać odpowiedni klimatyzator?</h3><p>Na podstawie powierzchni, rodzaju pomieszczenia i potrzeb chłodzenia/ogrzewania.</p></div>
 </section>
 
-<!-- POPRAWIONA SEKCJA KONTAKTU -->
 <section class="contact" id="kontakt">
   <h2>Skontaktuj się z nami</h2>
   <p>Uzyskaj bezpłatną wycenę dla swojej instalacji klimatyzacyjnej lub chłodniczej</p>
@@ -352,3 +361,5 @@ faqItems.forEach(item=>{
 </script>
 </body>
 </html>
+
+
